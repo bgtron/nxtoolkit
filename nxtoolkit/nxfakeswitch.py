@@ -165,7 +165,7 @@ class FakeSession(Session):
                 tenant_name = name[0]
                 bd_name = name[1]
                 if '/' in bd_name:
-                    print url
+                    print(url)
                     raise NotImplementedError
                 search_db = []
                 self._get_class('fvTenant', search_db, self.db,
