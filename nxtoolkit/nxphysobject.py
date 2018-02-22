@@ -1582,7 +1582,7 @@ class Interface(BaseInterface):
             self.attributes['interface_type'] = self.interface_type
             self.id = if_name
             self.if_type = if_name[:3]
-            (self.module, self.port)= if_name.replace('eth', '').split('/')
+            (self.module, self.port)= if_name.replace('eth', '').rsplit('/', 1)
             self.if_name = if_name
             self.attributes['module'] = self.module
             self.attributes['port'] = self.port
@@ -2044,7 +2044,7 @@ class Interface(BaseInterface):
 
         for interface in interface_data:
             if 'l1PhysIf' in interface:
-		attributes = interface['l1PhysIf']['attributes']
+                attributes = interface['l1PhysIf']['attributes']
                 dist_name = str(interface['l1PhysIf']['attributes']['dn'])
                 attributes['dist_name'] = dist_name
                 porttype = str(interface['l1PhysIf']['attributes']['portT'])
@@ -2511,7 +2511,7 @@ class System(BaseNXObject):
         resp = session.get(query_url).json()['imdata']
         for system in resp:
             dev_name = str(system['topSystem']['attributes']['name'])
-            print dev_name
+            print(dev_name)
             return System(session=session, name=dev_name)
 
 
