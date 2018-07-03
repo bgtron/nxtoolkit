@@ -105,7 +105,7 @@ class BaseNXObject(NxSearch):
                      instance
         :param parent: Parent object within the nxtoolkit object model.
         """
-        if isinstance(name, unicode):
+        if isinstance(name, str):
             name = str(name)
         if name is None or not isinstance(name, str):
             raise TypeError

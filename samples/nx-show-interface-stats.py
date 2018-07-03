@@ -71,7 +71,7 @@ def show_stats_long(args, interfaces):
     print('Interface {0}/{1}'.format(interfaces[0].module,interfaces[0].port))
     stats = interfaces[0].stats.get()
     for stats_family in sorted(stats):
-        print stats_family
+        print(stats_family)
         for counter in sorted(stats[stats_family]):
             print('    {0:>25}: {1}'.format(counter,
                                             stats[stats_family][counter]))
